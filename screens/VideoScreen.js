@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { View, Text, StyleSheet, Platform } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import { WebView } from 'react-native-webview';
 
 import HeaderButton from '../components/UI/HeaderButton';
 
@@ -8,6 +9,9 @@ const VideoScreen = (props) => {
 
 return (
       <View style={styles.container}>
+          <View>
+            <Input type="file" onChange={}/>
+          </View>
            <Text>Video Screen</Text>
       </View>
     );
