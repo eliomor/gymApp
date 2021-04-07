@@ -9,9 +9,13 @@ import 'react-native-gesture-handler';
 
 import AppNavigator from '../gymapp/navigation/AppNavigator';
 import authReducer from './store/reducer/auth';
+import usersReducer from './store/reducer/users';
+import messagesReducer from './store/reducer/messages';
 
 const rootReducer = combineReducers({
-  auth: authReducer
+  users: usersReducer,
+  auth: authReducer,
+  messages: messagesReducer
 });
 
 

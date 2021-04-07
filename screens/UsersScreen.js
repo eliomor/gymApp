@@ -1,23 +1,45 @@
-import * as React from 'react';
-import { View, Text, StyleSheet, Platform } from 'react-native';
+import  React,  { useEffect } from 'react';
+import { FlatList } from 'react-native';
+import { useSelector, useDispatch } from 'react-redux';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
+import UserItem from '../components/UserItem';
 import HeaderButton from '../components/UI/HeaderButton';
+import * as usersAction from '../store/action/users';
 
 const UsersScreen = (props) => {
+   const dispatch = useDispatch()
 
-return (
-      <View style={styles.container}>
-           <Text>Users Screen</Text>
-      </View>
-    );
-}
+   useEffect(() => {
+    dispatch(usersAction.fetchUsers());
+  }, [dispatch]);
+
+
+   const users = useSelector(state => state.users.availableUsers);
+   return (
+    <FlatList
+      data={users}
+      keyExtractor={item => item.userId}
+      renderItem={itemData => (
+        <UserItem
+          name={itemData.item.name}
+          onEdit={() => {
+            props.navigation.navigate('EditUser', {userId: itemData.item.userId});
+          }}
+          onDelete={() => {
+            dispatch(usersAction.deleteUser(itemData.item.userId));
+          }}
+        />       
+      )}
+    />
+  );
+};
 
 
 UsersScreen.navigationOptions = navData => {
   return {
-  headerTitle: 'Users',
-  headerLeft: () => (
+  headerTitle: 'All Users',
+  headerLeft: (
     <HeaderButtons HeaderButtonComponent={HeaderButton}>
     <Item
       title="Menu"
@@ -31,17 +53,5 @@ UsersScreen.navigationOptions = navData => {
  };  
 };
 
-
- const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',    
-    justifyContent: 'center'
-   }
-  }
-);
-
 export default UsersScreen;
-
-
 

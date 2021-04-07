@@ -1,20 +1,33 @@
-import * as React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import  React,  { useEffect } from 'react';
+import { View, Text, Platform, StyleSheet, ScrollView, Button} from 'react-native';
+import { useSelector, useDispatch } from 'react-redux';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
 import HeaderButton from '../components/UI/HeaderButton';
- 
-const ProfileScreen = (props) => {
+import * as usersAction from '../store/action/users';
+import Colors from '../constants/Colors';
+
+const MyProfileScreen = (props) => {
+  const dispatch = useDispatch()
+  const loginUser = useSelector(state => state.users.loginUser);
+  const userId = useSelector(state => state.auth.userId);
+
+  useEffect(() => {
+   dispatch(usersAction.fetchUsers());
+ }, [dispatch]);
 
 return (
-      <View style={styles.container}>
-           <Text>Profile Screen</Text>
-      </View>
+      <ScrollView>
+          <Text style={styles.title}><Text>Name: </Text>{loginUser.name}</Text>
+          <View style={styles.actions}>
+            <Button color={Colors.primary} title="Edit Details" onPress={() => { props.navigation.navigate('EditUser', {userId: userId})} } />
+          </View>
+    </ScrollView>
     );
-}
+};
 
 
-ProfileScreen.navigationOptions = navData => {
+MyProfileScreen.navigationOptions = navData => {
   return {
   headerTitle: 'Profile',
   headerLeft: () => (
@@ -32,14 +45,27 @@ ProfileScreen.navigationOptions = navData => {
 };
 
 
- const styles = StyleSheet.create({
-    container: {
-     flex: 1,
-     alignItems: 'center',    
-     justifyContent: 'center'
-    }
+const styles = StyleSheet.create({
+ actions: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 20
+  },
+ title: {
+    fontFamily: 'open-sans-bold',
+    fontSize: 30,
+    color: '#888',
+    textAlign: 'center',
+    marginVertical: 20
+  },
+  description: {
+    fontFamily: 'open-sans',
+    fontSize: 20,
+    textAlign: 'center',
+    marginHorizontal: 20
   }
-);
+});
 
-export default ProfileScreen;
+export default MyProfileScreen;
 

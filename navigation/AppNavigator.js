@@ -7,6 +7,7 @@ import Colors from '../constants/Colors';
 
 import AboutScreen from '../screens/AboutScreen';
 import ChatScreen from '../screens/ChatScreen';
+import EditUserScreen from '../screens/EditUserScreen';
 import HomeScreen from '../screens/HomeScreen';
 import LoginScreen from '../screens/LoginScreen';
 import LogoutScreen from '../screens/LogoutScreen';
@@ -56,12 +57,14 @@ const AboutNavigator = createStackNavigator({
 
 const UsersNavigator = createStackNavigator({
     Users: UsersScreen,
+    EditUser: EditUserScreen
 }, {
     defaultNavigationOptions: defaultNavOptions
 });
 
 const ProfileNavigator = createStackNavigator({
-    Profile: MyProfileScreen
+    Profile: MyProfileScreen,
+    EditUser: EditUserScreen
 }, {
     defaultNavigationOptions: defaultNavOptions
 });
