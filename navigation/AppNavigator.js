@@ -8,8 +8,10 @@ import Colors from '../constants/Colors';
 import AboutScreen from '../screens/AboutScreen';
 import ChatScreen from '../screens/ChatScreen';
 import EditUserScreen from '../screens/EditUserScreen';
+import EditDietScreen from '../screens/EditDietScreen';
 import HomeScreen from '../screens/HomeScreen';
 import LoginScreen from '../screens/LoginScreen';
+import MyDietScreen from '../screens/MyDietScreen';
 import LogoutScreen from '../screens/LogoutScreen';
 import MyProfileScreen from '../screens/MyProfileScreen';
 import ScheduleScreen from '../screens/ScheduleScreen';
@@ -36,6 +38,13 @@ const ChatNavigator = createStackNavigator({
     defaultNavigationOptions: defaultNavOptions
 });
 
+const DietNavigator = createStackNavigator({
+    Diet: MyDietScreen,
+    EditDiet: EditDietScreen
+}, {
+    defaultNavigationOptions: defaultNavOptions
+});
+
 const VideoNavigator = createStackNavigator({
     Video: VideoScreen
 }, {
@@ -57,7 +66,8 @@ const AboutNavigator = createStackNavigator({
 
 const UsersNavigator = createStackNavigator({
     Users: UsersScreen,
-    EditUser: EditUserScreen
+    EditUser: EditUserScreen,
+    EditDiet: EditDietScreen
 }, {
     defaultNavigationOptions: defaultNavOptions
 });
@@ -85,6 +95,7 @@ const LoginNavigator = createStackNavigator({
 const AppNavigator = createDrawerNavigator({
     Home: HomeNavigator,
     MyProfile: ProfileNavigator,
+    MyDiet: DietNavigator,
     Users:  UsersNavigator,
     About: AboutNavigator,
     Schedule: ScheduleNavigator,

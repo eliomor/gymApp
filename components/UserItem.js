@@ -14,12 +14,17 @@ const UserItem = props => {
       <View style={styles.actions}>
         <Button
           color={Colors.primary}
-          title="Edit User"
+          title="Edit Details"
           onPress={props.onEdit}
         />
         <Button
           color={Colors.primary}
-          title="Delete"
+          title="Edit Diet"
+          onPress={props.onEditDiet}
+        />
+        <Button
+          color={Colors.primary}
+          title="Delete User"
           onPress={props.onDelete}
         />
       </View>
@@ -29,7 +34,7 @@ const UserItem = props => {
 
 const styles = StyleSheet.create({
   container: {
-    height: 140,
+    height: 130,
     margin: 20
    },
 
@@ -47,8 +52,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    height: '75%',
-    paddingHorizontal: 20
+    height: '100%',
+    paddingHorizontal: 10
   }
 });
 export default UserItem;

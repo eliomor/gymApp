@@ -11,11 +11,13 @@ import AppNavigator from '../gymapp/navigation/AppNavigator';
 import authReducer from './store/reducer/auth';
 import usersReducer from './store/reducer/users';
 import messagesReducer from './store/reducer/messages';
+import dietsReducer from './store/reducer/diets';
 
 const rootReducer = combineReducers({
   users: usersReducer,
   auth: authReducer,
-  messages: messagesReducer
+  messages: messagesReducer,
+  diets: dietsReducer
 });
 
 

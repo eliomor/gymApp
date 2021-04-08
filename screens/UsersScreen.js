@@ -26,6 +26,9 @@ const UsersScreen = (props) => {
           onEdit={() => {
             props.navigation.navigate('EditUser', {userId: itemData.item.userId});
           }}
+          onEditDiet={() => {
+            props.navigation.navigate('EditDiet', {userId: itemData.item.userId});
+          }}
           onDelete={() => {
             dispatch(usersAction.deleteUser(itemData.item.userId));
           }}

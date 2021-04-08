@@ -15,24 +15,22 @@ import * as usersAction from '../store/action/users';
 import HeaderButton from '../components/UI/HeaderButton';
 
 const EditUsersScreen = (props) => {
+  const dispatch = useDispatch()
   const userId = props.navigation.getParam('userId');
-  
   const userExists = useSelector(state =>
     state.users.availableUsers.find(user => user.userId === userId)
   );
-
-  const dispatch = useDispatch()
 
   useEffect(() => {
    dispatch(usersAction.fetchUsers());
  }, [dispatch]);
  
 
-
   const [name,setName] = useState(userExists ? userExists.name : '');
 
   const submitHandler = useCallback(() => {
     dispatch(usersAction.updateUser(userId ,name));
+    dispatch(usersAction.fetchUsers());
     props.navigation.goBack();
   }, [dispatch,userId,name]);
 

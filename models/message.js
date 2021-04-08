@@ -1,9 +1,10 @@
 class Message {
-    constructor( messageId, userId, date, description) {
+    constructor(messageId, userId, name, date, message) {
         this.messageId = messageId;
         this.userId = userId;
+        this.name = name;
         this.date = date;
-        this.description = description;
+        this.message = message;
     }
 }
 
