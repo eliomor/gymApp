@@ -9,17 +9,8 @@ import HeaderButton from '../components/UI/HeaderButton';
 const EditDietScreen = (props) => {
   const dispatch = useDispatch()
   const userId = props.navigation.getParam('userId');
-  //const dietId = useSelector(state => state.diets.loginUserDiet.dietId);
-  
-  const dietExists = useSelector(state =>
-    state.diets.allDiets.find(diet => diet.userId === userId)
-  );
-
-  const currentUser = useSelector(state =>
-    state.users.availableUsers.find(user => user.userId === userId)
-  );
-
-
+  const dietExists = useSelector(state => state.diets.allDiets.find(diet => diet.userId === userId));
+  const currentUser = useSelector(state => state.users.availableUsers.find(user => user.userId === userId));
 
   useEffect(() => {
    dispatch(dietsAction.fetchDiets());

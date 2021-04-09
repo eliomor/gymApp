@@ -1,4 +1,3 @@
-import { ActionSheetIOS } from 'react-native';
 import { DELETE_USER, SET_USERS, UPDATE_USER } from '../action/users';
 import User from '../../models/user';
 

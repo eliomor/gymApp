@@ -15,7 +15,6 @@ const MyProfileScreen = (props) => {
   useEffect(() => {
    dispatch(usersAction.fetchUsers());
  }, [dispatch]);
- 
 return (
       <ScrollView>
           <Text style={styles.title}><Text>Name: </Text>{loginUser.name}</Text>

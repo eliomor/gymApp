@@ -10,12 +10,17 @@ const UserItem = props => {
     <Card style={styles.container}>
       <View style={styles.details}>
         <Text style={styles.title}>{props.name}</Text>
-      </View>
+     </View>
       <View style={styles.actions}>
         <Button
           color={Colors.primary}
           title="Edit Details"
           onPress={props.onEdit}
+        />
+        <Button
+          color={Colors.primary}
+          title="Edit Training"
+          onPress={props.onEditTraining}
         />
         <Button
           color={Colors.primary}
@@ -27,15 +32,16 @@ const UserItem = props => {
           title="Delete User"
           onPress={props.onDelete}
         />
-      </View>
+       </View>
     </Card>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    height: 130,
-    margin: 20
+    height: 160,
+    margin: 20,
+    flexDirection: 'row'
    },
 
   details: {
@@ -44,16 +50,18 @@ const styles = StyleSheet.create({
     padding: 10
   },
   title: {
-    fontSize: 30,
+    fontSize: 40,
     marginVertical: 4
   },
-
   actions: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    height: '100%',
-    paddingHorizontal: 10
+    flexDirection: 'column',
+    padding: 10,
+    paddingHorizontal: 10,
+    padding: 10,
+    marginHorizontal: 30,
+    alignSelf: 'flex-end',
+    marginLeft: 'auto',
+    fontFamily: 'open-sans-bold',
   }
 });
 export default UserItem;

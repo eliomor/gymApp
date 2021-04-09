@@ -7,17 +7,20 @@ import Colors from '../constants/Colors';
 
 import AboutScreen from '../screens/AboutScreen';
 import ChatScreen from '../screens/ChatScreen';
-import EditUserScreen from '../screens/EditUserScreen';
+import EditExerciseScreen from '../screens/EditExerciseScreen';
+import EditTrainingScreen from '../screens/EditTrainingScreen';
 import EditDietScreen from '../screens/EditDietScreen';
+import EditUserScreen from '../screens/EditUserScreen';
+import ExerciseScreen from '../screens/ExerciseScreen';
 import HomeScreen from '../screens/HomeScreen';
 import LoginScreen from '../screens/LoginScreen';
 import MyDietScreen from '../screens/MyDietScreen';
 import LogoutScreen from '../screens/LogoutScreen';
 import MyProfileScreen from '../screens/MyProfileScreen';
 import ScheduleScreen from '../screens/ScheduleScreen';
+import TrainingScreen from '../screens/TrainingScreen';
 import UsersScreen from '../screens/UsersScreen';
 import VideoScreen from '../screens/VideoScreen';
-
 
 const defaultNavOptions = {
     headerStyle: {
@@ -51,6 +54,14 @@ const VideoNavigator = createStackNavigator({
     defaultNavigationOptions: defaultNavOptions
 });
 
+const TrainingNavigator = createStackNavigator({
+    Training: TrainingScreen,
+    EditTraining:  EditTrainingScreen,
+    Exercise: ExerciseScreen,
+    EditExercise: EditExerciseScreen
+}, {
+    defaultNavigationOptions: defaultNavOptions
+});
 
 const ScheduleNavigator = createStackNavigator({
     Schedule: ScheduleScreen
@@ -67,7 +78,10 @@ const AboutNavigator = createStackNavigator({
 const UsersNavigator = createStackNavigator({
     Users: UsersScreen,
     EditUser: EditUserScreen,
-    EditDiet: EditDietScreen
+    EditDiet: EditDietScreen,
+    EditTraining: EditTrainingScreen,
+    Exercise: ExerciseScreen,
+    EditExercise: EditExerciseScreen
 }, {
     defaultNavigationOptions: defaultNavOptions
 });
@@ -95,6 +109,7 @@ const LoginNavigator = createStackNavigator({
 const AppNavigator = createDrawerNavigator({
     Home: HomeNavigator,
     MyProfile: ProfileNavigator,
+    Training: TrainingNavigator,
     MyDiet: DietNavigator,
     Users:  UsersNavigator,
     About: AboutNavigator,
