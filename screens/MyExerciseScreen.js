@@ -7,27 +7,20 @@ import HeaderButton from '../components/UI/HeaderButton';
 import ExerciseItem from '../components/ExerciseItem';
 import * as exercisesAction from '../store/action/exercises';
 
-const ExerciseScreen = (props) => {
+const MyExerciseScreen = (props) => {
    const dispatch = useDispatch()
    const trainingId = props.navigation.getParam('trainingId');
-   const userId = props.navigation.getParam('userId');
    const exercises = useSelector(state => state.exercises.availableExercises.filter(exercise => exercise.trainingId === trainingId));
 
-   const addHandler = useCallback(() => {
-    props.navigation.navigate('AddExercise', {trainingId: trainingId, userId: userId,});
-  }, []);
   
   useEffect(() => {
     dispatch(exercisesAction.fetchExercises());
   }, [ dispatch]);
 
-  useEffect(() => {
-    props.navigation.setParams({ add: addHandler });
-  }, [addHandler]);
 
   if (exercises.length === 0) {
     return ( <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>No exercises found, maybe start creating some</Text>
+      <Text>No exercises found</Text>
     </View>
     );
   }
@@ -52,25 +45,13 @@ const ExerciseScreen = (props) => {
 };
 
 
-ExerciseScreen.navigationOptions = navData => {
-  const addFn = navData.navigation.getParam('add');
+MyExerciseScreen.navigationOptions = navData => {
   return {
-  headerTitle: 'All Exercise',
-  headerRight: (
-    <HeaderButtons HeaderButtonComponent={HeaderButton}>
-      <Item
-        title="add"
-        iconName={
-          Platform.OS === 'android' ? 'md-add' : 'ios-add'
-        }
-        onPress={addFn} 
-      />
-    </HeaderButtons>
-  ),
+  headerTitle: 'My Exercise',
  };  
 };
 
 
 
-export default ExerciseScreen;
+export default MyExerciseScreen;
 

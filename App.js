@@ -12,12 +12,17 @@ import authReducer from './store/reducer/auth';
 import usersReducer from './store/reducer/users';
 import messagesReducer from './store/reducer/messages';
 import dietsReducer from './store/reducer/diets';
+import exercisesReducer from './store/reducer/exercises';
+import trainingsReducer from './store/reducer/trainings';
+
 
 const rootReducer = combineReducers({
   users: usersReducer,
   auth: authReducer,
   messages: messagesReducer,
-  diets: dietsReducer
+  diets: dietsReducer,
+  exercises: exercisesReducer,
+  trainings: trainingsReducer
 });
 
 
