@@ -14,6 +14,7 @@ import messagesReducer from './store/reducer/messages';
 import dietsReducer from './store/reducer/diets';
 import exercisesReducer from './store/reducer/exercises';
 import trainingsReducer from './store/reducer/trainings';
+import scheduleReducer from './store/reducer/schedules';
 
 
 const rootReducer = combineReducers({
@@ -22,7 +23,8 @@ const rootReducer = combineReducers({
   messages: messagesReducer,
   diets: dietsReducer,
   exercises: exercisesReducer,
-  trainings: trainingsReducer
+  trainings: trainingsReducer,
+  schedules: scheduleReducer
 });
 
 

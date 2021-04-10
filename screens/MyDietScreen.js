@@ -10,13 +10,8 @@ import Colors from '../constants/Colors';
 const MyDietScreen = (props) => {
   const dispatch = useDispatch()
   const loginUser = useSelector(state => state.users.loginUser);
-  //const Mydiet = useSelector(state => state.diets.loginUserDiet);
   const userId = useSelector(state => state.auth.userId);
-
-
-  const dietExists = useSelector(state =>
-    state.diets.allDiets.find(diet => diet.userId === userId)
-  );
+  const dietExists = useSelector(state =>state.diets.allDiets.find(diet => diet.userId === userId));
 
 useEffect(() => {
   dispatch(dietsAction.fetchDiets(userId));
@@ -29,10 +24,6 @@ return (
           <Text style={styles.description}><Text>Lunch: </Text>{dietExists ? dietExists.lunch : ''}</Text>
           <Text style={styles.description}><Text>Dinner: </Text>{dietExists ? dietExists.dinner : ''}</Text>
           <Text style={styles.description}><Text>Snacks: </Text>{dietExists ? dietExists.snacks : ''}</Text>
-
-          <View style={styles.actions}>
-            <Button color={Colors.primary} title="Edit Diet" onPress={() => { props.navigation.navigate('EditDiet', {userId: userId})} } />
-          </View>
     </ScrollView>
     );
 };

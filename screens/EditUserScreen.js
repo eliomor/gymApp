@@ -27,12 +27,20 @@ const EditUsersScreen = (props) => {
  
 
   const [name,setName] = useState(userExists ? userExists.name : '');
+  const [phone,setPhone] = useState(userExists ? userExists.phone : '');
+  const [age,setAge] = useState(userExists ? userExists.age : '');
+  const [weight,setWeight] = useState(userExists ? userExists.weight : '');
+  const [height,setHeight] = useState(userExists ? userExists.height : '');
+  const [BMI,setBMI] = useState(userExists ? userExists.BMI : '');
+  const [scope,setScope] = useState(userExists ? userExists.scope : '');
+  const [fat,setFat] = useState(userExists ? userExists.fat : '');
+
 
   const submitHandler = useCallback(() => {
-    dispatch(usersAction.updateUser(userId ,name));
+    dispatch(usersAction.updateUser(userId ,name, phone, age, weight, height, BMI, scope, fat));
     dispatch(usersAction.fetchUsers());
     props.navigation.goBack();
-  }, [dispatch,userId,name]);
+  }, [dispatch,userId ,name, phone, age, weight, height, BMI, scope, fat]);
 
   useEffect(() => {
     props.navigation.setParams({ submit: submitHandler });
@@ -52,6 +60,69 @@ const EditUsersScreen = (props) => {
             style={styles.input}
             value={name}
             onChangeText={text => setName(text)}
+            autoCapitalize='sentences'
+          />
+        </View>
+        <View style={styles.formControl}>
+          <Text style={styles.label}>Phone</Text>
+          <TextInput
+            style={styles.input}
+            value={phone}
+            onChangeText={text => setPhone(text)}
+            autoCapitalize='sentences'
+          />
+        </View>
+        <View style={styles.formControl}>
+          <Text style={styles.label}>Age</Text>
+          <TextInput
+            style={styles.input}
+            value={age}
+            onChangeText={text => setAge(text)}
+            autoCapitalize='sentences'
+          />
+        </View>
+        <View style={styles.formControl}>
+          <Text style={styles.label}>Weight</Text>
+          <TextInput
+            style={styles.input}
+            value={weight}
+            onChangeText={text => setWeight(text)}
+            autoCapitalize='sentences'
+          />
+        </View>
+        <View style={styles.formControl}>
+          <Text style={styles.label}>Height</Text>
+          <TextInput
+            style={styles.input}
+            value={height}
+            onChangeText={text => setHeight(text)}
+            autoCapitalize='sentences'
+          />
+        </View>
+        <View style={styles.formControl}>
+          <Text style={styles.label}>BMI</Text>
+          <TextInput
+            style={styles.input}
+            value={BMI}
+            onChangeText={text => setBMI(text)}
+            autoCapitalize='sentences'
+          />
+        </View>
+        <View style={styles.formControl}>
+          <Text style={styles.label}>Scope</Text>
+          <TextInput
+            style={styles.input}
+            value={scope}
+            onChangeText={text => setScope(text)}
+            autoCapitalize='sentences'
+          />
+        </View>
+        <View style={styles.formControl}>
+          <Text style={styles.label}>Fat</Text>
+          <TextInput
+            style={styles.input}
+            value={fat}
+            onChangeText={text => setFat(text)}
             autoCapitalize='sentences'
           />
         </View>

@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
 import HeaderButton from '../components/UI/HeaderButton';
-import ExerciseItem from '../components/ExerciseItem';
+import MyExerciseItem from '../components/MyExerciseItem';
 import * as exercisesAction from '../store/action/exercises';
 
 const MyExerciseScreen = (props) => {
@@ -29,15 +29,12 @@ const MyExerciseScreen = (props) => {
       data={exercises}
       keyExtractor={item => item.exerciseId}
       renderItem={itemData => (
-        <ExerciseItem
+        <MyExerciseItem
          exerciseName={itemData.item.exerciseName}
           onViewDetail={() => {
             props.navigation.navigate('ExerciseDetails', {exerciseId: itemData.item.exerciseId});
           }}
-          onDelete={() => {
-            dispatch(exercisesAction.deleteExercise(itemData.item.exerciseId));
-          }}
-          
+         
         />       
       )}
     />

@@ -18,6 +18,13 @@ const MyProfileScreen = (props) => {
 return (
       <ScrollView>
           <Text style={styles.title}><Text>Name: </Text>{loginUser.name}</Text>
+          <Text style={styles.description}><Text>Phone: </Text>{loginUser.phone}</Text>
+          <Text style={styles.description}><Text>Age: </Text>{loginUser.age}</Text>
+          <Text style={styles.description}><Text>Weight: </Text>{loginUser.weight}</Text>
+          <Text style={styles.description}><Text>Height: </Text>{loginUser.height}</Text>
+          <Text style={styles.description}><Text>BMI: </Text>{loginUser.BMI}</Text>
+          <Text style={styles.description}><Text>Scope: </Text>{loginUser.scope}</Text>
+          <Text style={styles.description}><Text>Fat: </Text>{loginUser.fat}</Text>
           <View style={styles.actions}>
             <Button color={Colors.primary} title="Edit Details" onPress={() => { props.navigation.navigate('EditUser', {userId: userId})} } />
           </View>

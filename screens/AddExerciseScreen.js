@@ -11,7 +11,6 @@ const AddExerciseScreen = (props) => {
 const dispatch = useDispatch()
 const trainingId = props.navigation.getParam('trainingId');
 const userId = props.navigation.getParam('userId');
-console.log(userId)
 const [exerciseName, setExerciseName] = useState('');
 const [setsNumber, setSetsNumber] = useState('');
 const [repetitionsNumber, setRepetitionsNumber] = useState('');
@@ -23,7 +22,7 @@ const [weight, setWeight] = useState('');
 
 const submitHandler = useCallback(() => {
   dispatch(exerciseAction.createExercise(trainingId, userId , exerciseName, setsNumber, repetitionsNumber, weight));
-  dispatch(exercisesAction.fetchExercises());
+  dispatch(exerciseAction.fetchExercises());
   props.navigation.goBack();
 }, [dispatch,trainingId, userId, exerciseName, setsNumber, repetitionsNumber, weight]);
 

@@ -25,6 +25,13 @@ export default (state = initialState, action) => {
             const updatedUser = new User(
                                         action.uid,   
                                         action.userData.name,
+                                        action.userData.phone,
+                                        action.userData.age,
+                                        action.userData.weight,
+                                        action.userData.height,
+                                        action.userData.BMI,
+                                        action.userData.scope,
+                                        action.userData.fat,
                                         );
             const updatedUserList = [...state.availableUsers];
             updatedUserList[userIndex] = updatedUser;

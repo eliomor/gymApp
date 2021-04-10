@@ -14,7 +14,14 @@ export const fetchUsers = () => {
             loadedUsers.push(new User(
                 key,
                 resData[key].permission,
-                resData[key].name
+                resData[key].name,
+                resData[key].phone,
+                resData[key].age,
+                resData[key].weight,
+                resData[key].height,
+                resData[key].BMI,
+                resData[key].scope,
+                resData[key].fat,
                 )
             );
         }
@@ -32,16 +39,16 @@ export const deleteUser = userId => {
 };
 
 
-export const updateUser = (userId, name) => {
+export const updateUser = (userId, name, phone, age, weight, height, BMI, scope, fat) => {
     return async (dispatch) => {
         const response = await fetch(`https://gymapp-b60ab-default-rtdb.europe-west1.firebasedatabase.app/users/${userId}.json`, {
             method: 'PATCH',
             headers: {
             'Content-Type': 'application/json'
             },
-            body: JSON.stringify({name})
+            body: JSON.stringify({name, phone, age, weight, height, BMI, scope, fat})
             });
 
-            dispatch({ type: UPDATE_USER, uid: userId, userData : { name } });
+            dispatch({ type: UPDATE_USER, uid: userId, userData : { name, phone, age, weight, height, BMI, scope, fat } });
     };
 };

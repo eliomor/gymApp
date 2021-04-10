@@ -85,7 +85,7 @@ const UsersNavigator = createStackNavigator({
     AddTraining: AddTrainingScreen,
     Exercise: ExerciseScreen,
     AddExercise: AddExerciseScreen,
-    ExerciseDetailsScreen: ExerciseDetailsScreen
+    ExerciseDetails: ExerciseDetailsScreen
 }, {
     defaultNavigationOptions: defaultNavOptions
 });
@@ -112,10 +112,12 @@ const LoginNavigator = createStackNavigator({
 
 const AppNavigator = createDrawerNavigator({
     Home: HomeNavigator,
-    MyProfile: ProfileNavigator,
-    MyTraining: MyTrainingNavigator,
-    MyDiet: DietNavigator,
+    My_Profile: ProfileNavigator,
+    My_Training: MyTrainingNavigator,
+    My_Diet: DietNavigator,
+
     Users:  UsersNavigator,
+
     About: AboutNavigator,
     Schedule: ScheduleNavigator,
     Video: VideoNavigator,
@@ -123,7 +125,12 @@ const AppNavigator = createDrawerNavigator({
     Logout: LogoutNavigator
 },{
     contentOptions: {
-        activeTintColor: Colors.primary
+        activeTintColor: Colors.primary,
+    },
+    labelStyle: {
+        fontSize: 20,
+        fontFamily: 'open-sans-bold',
+        color: Colors.primary,
     }
 });
 

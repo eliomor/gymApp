@@ -1,17 +1,15 @@
 import  React,  { useEffect } from 'react';
 import { View, Text, Platform, StyleSheet, ScrollView, Button} from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
-import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
-import HeaderButton from '../components/UI/HeaderButton';
-import ExerciseItem from '../components/ExerciseItem';
 import * as exercisesAction from '../store/action/exercises';
 
 const ExerciseDetailsScreen = (props) => {
   const dispatch = useDispatch()
   const exerciseId = props.navigation.getParam('exerciseId');
-  const exercises = useSelector(state => state.exercises.availableExercises.filter(exercise => exercise.exerciseId === exerciseId));
+  const exercises = useSelector(state => state.exercises.availableExercises.find(exercise => exercise.exerciseId === exerciseId));
 
+  console.log(exercises)
 
   useEffect(() => {
     dispatch(exercisesAction.fetchExercises());
@@ -19,9 +17,10 @@ const ExerciseDetailsScreen = (props) => {
   
   return (
     <ScrollView>
-        <Text style={styles.title}><Text>Name: </Text>{exercises.name}</Text>
-        <View style={styles.actions}>
-        </View>
+        <Text style={styles.title}><Text>Name: </Text>{exercises ? exercises.exerciseName : ''}</Text>
+        <Text style={styles.description}><Text>Sets Number: </Text>{exercises ? exercises.setsNumber : ''}</Text>
+        <Text style={styles.description}><Text>Repetitions Number: </Text>{exercises ? exercises.repetitionsNumber : ''}</Text>
+        <Text style={styles.description}><Text>Weight: </Text>{exercises ? exercises.weight : ''}</Text>
   </ScrollView>
   );
 };

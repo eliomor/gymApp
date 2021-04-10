@@ -1,5 +1,5 @@
 import React, { useState, useReducer, useCallback, useEffect } from 'react';
-import { View, StyleSheet, Button, ScrollView, KeyboardAvoidingView, ActivityIndicator, Alert } from 'react-native';
+import { View, StyleSheet, Button, ScrollView, KeyboardAvoidingView, ActivityIndicator, Alert, LogBox } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useDispatch } from 'react-redux';
 
@@ -7,6 +7,8 @@ import Input from '../components/UI/Input';
 import Card from '../components/UI/Card';
 import Colors from '../constants/Colors';
 import * as authActions from '../store/action/auth';
+
+LogBox.ignoreAllLogs();
 
 const FORM_INPUT_UPDATE = 'FORM_INPUT_UPDATE';
 

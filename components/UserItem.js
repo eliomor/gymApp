@@ -41,7 +41,8 @@ const styles = StyleSheet.create({
   container: {
     height: 160,
     margin: 20,
-    flexDirection: 'row'
+    flexDirection: 'row',
+    justifyContent: 'space-between',
    },
 
   details: {
@@ -54,6 +55,7 @@ const styles = StyleSheet.create({
     marginVertical: 4
   },
   actions: {
+    justifyContent: 'space-between',
     flexDirection: 'column',
     padding: 10,
     paddingHorizontal: 10,
