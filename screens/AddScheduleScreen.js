@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import DatePicker from 'react-native-datepicker';
 import HeaderButton from '../components/UI/HeaderButton';
 import * as SchedulesAction from '../store/action/schedules';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 const AddScheduleScreen = (props) => {
   
@@ -56,11 +57,12 @@ return (
         </View>
         <View style={styles.formControl}>
              <Text style={styles.label}>Time</Text>
-             <TextInput 
-                style={styles.input} 
-                value={time} 
-                onChangeText={text => setTime(text)}
-             />
+             <DateTimePicker
+                onChange={setTime}
+                value={time}
+                mode={time}
+                display={spinner}
+              />
         </View>
           <View style={styles.formControl}>
              <Text style={styles.label}>Description</Text>
@@ -107,7 +109,8 @@ AddScheduleScreen.navigationOptions = navData => {
       paddingVertical: 5,
       borderBottomColor: '#ccc',
       borderBottomWidth: 1
-    }
+    },
+
   });
 
 export default AddScheduleScreen;

@@ -1,7 +1,8 @@
 import  React,  { useEffect } from 'react';
-import { FlatList } from 'react-native';
+import { FlatList, StyleSheet } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import { LinearGradient } from 'expo-linear-gradient';
 
 import UserItem from '../components/UserItem';
 import HeaderButton from '../components/UI/HeaderButton';
@@ -17,6 +18,7 @@ const UsersScreen = (props) => {
 
    const users = useSelector(state => state.users.availableUsers);
    return (
+  <LinearGradient colors={['#D03B29','#FEFEDF']} style={styles.gradient}> 
     <FlatList
       data={users}
       keyExtractor={item => item.userId}
@@ -41,6 +43,7 @@ const UsersScreen = (props) => {
         />       
       )}
     />
+  </LinearGradient>
   );
 };
 
@@ -61,6 +64,15 @@ UsersScreen.navigationOptions = navData => {
   )
  };  
 };
+
+const styles = StyleSheet.create({
+  gradient: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+});
 
 export default UsersScreen;
 

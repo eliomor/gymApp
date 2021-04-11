@@ -1,7 +1,8 @@
 import  React , { useEffect, useCallback } from 'react';
-import { View, Text, FlatList } from 'react-native';
+import { View, Text,StyleSheet, FlatList } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import { LinearGradient } from 'expo-linear-gradient';
 
 import HeaderButton from '../components/UI/HeaderButton';
 import ExerciseItem from '../components/ExerciseItem';
@@ -32,6 +33,7 @@ const ExerciseScreen = (props) => {
     );
   }
    return (
+   <LinearGradient colors={['#D03B29','#FEFEDF']} style={styles.gradient}> 
     <FlatList
       data={exercises}
       keyExtractor={item => item.exerciseId}
@@ -48,6 +50,7 @@ const ExerciseScreen = (props) => {
         />       
       )}
     />
+   </LinearGradient>
   );
 };
 
@@ -70,6 +73,14 @@ ExerciseScreen.navigationOptions = navData => {
  };  
 };
 
+const styles = StyleSheet.create({
+  gradient: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+});
 
 
 export default ExerciseScreen;

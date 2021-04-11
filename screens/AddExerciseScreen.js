@@ -2,6 +2,7 @@ import  React, { useState, useEffect, useCallback  } from 'react';
 import { View, ScrollView, Text, TextInput, StyleSheet, Platform } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import { useDispatch, useSelector } from 'react-redux';
+import { LinearGradient } from 'expo-linear-gradient';
 
 import HeaderButton from '../components/UI/HeaderButton';
 import * as exerciseAction from '../store/action/exercises';
@@ -102,7 +103,7 @@ useEffect(() => {
       paddingVertical: 5,
       borderBottomColor: '#ccc',
       borderBottomWidth: 1
-    }
+    },
   });
 
 export default AddExerciseScreen;

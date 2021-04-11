@@ -2,6 +2,7 @@ import  React,  { useEffect } from 'react';
 import { View, Text, Platform, StyleSheet, ScrollView, Button} from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import { LinearGradient } from 'expo-linear-gradient';
 
 import HeaderButton from '../components/UI/HeaderButton';
 import * as usersAction from '../store/action/users';
@@ -15,20 +16,29 @@ const MyProfileScreen = (props) => {
   useEffect(() => {
    dispatch(usersAction.fetchUsers());
  }, [dispatch]);
+ 
 return (
+  <LinearGradient colors={['#D03B29','#FEFEDF']} style={styles.gradient}> 
       <ScrollView>
-          <Text style={styles.title}><Text>Name: </Text>{loginUser.name}</Text>
-          <Text style={styles.description}><Text>Phone: </Text>{loginUser.phone}</Text>
-          <Text style={styles.description}><Text>Age: </Text>{loginUser.age}</Text>
-          <Text style={styles.description}><Text>Weight: </Text>{loginUser.weight}</Text>
-          <Text style={styles.description}><Text>Height: </Text>{loginUser.height}</Text>
-          <Text style={styles.description}><Text>BMI: </Text>{loginUser.BMI}</Text>
-          <Text style={styles.description}><Text>Scope: </Text>{loginUser.scope}</Text>
-          <Text style={styles.description}><Text>Fat: </Text>{loginUser.fat}</Text>
+          <Text style={styles.title}>{loginUser.name}</Text>
+          <View style={styles.topContainer}>
+          <View style={styles.container}>
+          <Text style={styles.description}><Text>Phone:  </Text>{loginUser.phone}</Text>
+          <Text style={styles.description}><Text>Age:  </Text>{loginUser.age}</Text>
+          <Text style={styles.description}><Text>Weight:  </Text>{loginUser.weight}</Text>
+          <Text style={styles.description}><Text>Height:  </Text>{loginUser.height}</Text>
+          <Text style={styles.description}><Text>BMI:  </Text>{loginUser.BMI}</Text>
+          <Text style={styles.description}><Text>Scope:  </Text>{loginUser.scope}</Text>
+          <Text style={styles.description}><Text>Fat:  </Text>{loginUser.fat}</Text>
+          </View>
           <View style={styles.actions}>
             <Button color={Colors.primary} title="Edit Details" onPress={() => { props.navigation.navigate('EditUser', {userId: userId})} } />
           </View>
+        </View>
+
     </ScrollView>
+  </LinearGradient>
+
     );
 };
 
@@ -52,30 +62,45 @@ MyProfileScreen.navigationOptions = navData => {
 
 
 const styles = StyleSheet.create({
+  topContainer: {
+    alignItems: 'center',    
+    justifyContent: 'center'
+  },
  actions: {
-    flexDirection: 'row',
+    flexDirection: 'column',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: 20
+    paddingHorizontal: 10
   },
  title: {
     fontFamily: 'open-sans-bold',
     fontSize: 30,
-    color: '#888',
+    color: 'black',
     textAlign: 'center',
     marginVertical: 20
   },
+  container: {
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    padding: 1,
+    marginBottom: 20,
+    marginLeft: 95
+  },
   description: {
-    fontFamily: 'open-sans',
+    fontFamily: 'open-sans-bold',
     fontSize: 20,
+    padding: 2,
+    justifyContent: 'center',
     textAlign: 'center',
+    alignItems: 'center',
     marginHorizontal: 20
   },
-  actions: {
-    alignItems: 'center',    
-    justifyContent: 'center'
-
-  }
+  gradient: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
 });
 
 export default MyProfileScreen;

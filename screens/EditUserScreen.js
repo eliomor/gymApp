@@ -1,15 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import {
-  View,
-  ScrollView,
-  Text,
-  TextInput,
-  StyleSheet,
-  Platform,
-  KeyboardAvoidingView
-} from 'react-native';
+import { View, ScrollView, Text, TextInput, StyleSheet, Platform,KeyboardAvoidingView } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import { useSelector, useDispatch } from 'react-redux';
+import { LinearGradient } from 'expo-linear-gradient';
 
 import * as usersAction from '../store/action/users';
 import HeaderButton from '../components/UI/HeaderButton';
@@ -48,10 +41,7 @@ const EditUsersScreen = (props) => {
 
 
   return (
-  <KeyboardAvoidingView
-    style={{ flex: 1 }}
-    behavior="height'"
-  >  
+  <KeyboardAvoidingView style={{ flex: 1 }} behavior="height'">  
     <ScrollView>
       <View style={styles.form}>      
         <View style={styles.formControl}>
@@ -128,7 +118,7 @@ const EditUsersScreen = (props) => {
         </View>
       </View>
     </ScrollView>
-    </KeyboardAvoidingView>
+  </KeyboardAvoidingView>
   );
 };
 
@@ -171,7 +161,7 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     borderBottomColor: '#ccc',
     borderBottomWidth: 1
-  }
+  },
 });
 
 export default EditUsersScreen;

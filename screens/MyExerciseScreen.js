@@ -1,7 +1,8 @@
 import  React , { useEffect, useCallback } from 'react';
-import { View, Text, FlatList } from 'react-native';
+import { View, Text, FlatList, StyleSheet } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import { LinearGradient } from 'expo-linear-gradient';
 
 import HeaderButton from '../components/UI/HeaderButton';
 import MyExerciseItem from '../components/MyExerciseItem';
@@ -19,12 +20,17 @@ const MyExerciseScreen = (props) => {
 
 
   if (exercises.length === 0) {
-    return ( <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>No exercises found</Text>
-    </View>
+    return ( 
+      <LinearGradient colors={['#D03B29','#FEFEDF']} style={styles.gradient}> 
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          <Text>No exercises found</Text>
+        </View>
+      </LinearGradient>
+
     );
   }
    return (
+   <LinearGradient colors={['#D03B29','#FEFEDF']} style={styles.gradient}> 
     <FlatList
       data={exercises}
       keyExtractor={item => item.exerciseId}
@@ -34,10 +40,10 @@ const MyExerciseScreen = (props) => {
           onViewDetail={() => {
             props.navigation.navigate('ExerciseDetails', {exerciseId: itemData.item.exerciseId});
           }}
-         
         />       
       )}
     />
+  </LinearGradient>
   );
 };
 
@@ -48,6 +54,14 @@ MyExerciseScreen.navigationOptions = navData => {
  };  
 };
 
+const styles = StyleSheet.create({
+  gradient: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+});
 
 
 export default MyExerciseScreen;

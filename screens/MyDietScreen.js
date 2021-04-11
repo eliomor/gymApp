@@ -2,6 +2,7 @@ import  React,  { useEffect, useState } from 'react';
 import { View, Text, Platform, StyleSheet, ScrollView, Button} from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import { LinearGradient } from 'expo-linear-gradient';
 
 import HeaderButton from '../components/UI/HeaderButton';
 import * as dietsAction from '../store/action/diets';
@@ -18,13 +19,15 @@ useEffect(() => {
 }, [dispatch,userId]);
 
 return (
+  <LinearGradient colors={['#D03B29','#FEFEDF']} style={styles.gradient}> 
       <ScrollView>
           <Text style={styles.title}><Text>Name: </Text>{loginUser.name}</Text>
           <Text style={styles.description}><Text>Breakfast: </Text>{dietExists ? dietExists.breakfast : ''}</Text>
           <Text style={styles.description}><Text>Lunch: </Text>{dietExists ? dietExists.lunch : ''}</Text>
           <Text style={styles.description}><Text>Dinner: </Text>{dietExists ? dietExists.dinner : ''}</Text>
           <Text style={styles.description}><Text>Snacks: </Text>{dietExists ? dietExists.snacks : ''}</Text>
-    </ScrollView>
+      </ScrollView>
+   </LinearGradient>
     );
 };
 
@@ -70,7 +73,12 @@ const styles = StyleSheet.create({
   actions: {
     alignItems: 'center',    
     justifyContent: 'center'
-
+  },
+  gradient: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });
 

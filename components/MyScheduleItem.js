@@ -10,13 +10,10 @@ const MyScheduleItem = props => {
     <Card style={styles.container}>
       <View style={styles.details}>
         <Text style={styles.title}>{props.date}</Text>
+        <Text style={styles.title}>{props.time}</Text>
+        <Text style={styles.title}>{props.description}</Text>
       </View>
       <View style={styles.actions}>
-        <Button
-          color={Colors.primary}
-          title="View Details"
-          onPress={props.onViewDetail}
-        />
       </View>
     </Card>
   );
@@ -24,7 +21,7 @@ const MyScheduleItem = props => {
 
 const styles = StyleSheet.create({
   container: {
-    height: 140,
+    height: 170,
     margin: 20
    },
 

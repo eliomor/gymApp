@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { View, ScrollView, Text, TextInput, StyleSheet, Platform, KeyboardAvoidingView } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import { useSelector, useDispatch } from 'react-redux';
+import { LinearGradient } from 'expo-linear-gradient';
 
 import * as dietsAction from '../store/action/diets';
 import HeaderButton from '../components/UI/HeaderButton';
@@ -40,10 +41,7 @@ const EditDietScreen = (props) => {
 
 
   return (
-  <KeyboardAvoidingView
-    style={{ flex: 1 }}
-    behavior="height'"
-  >  
+  <KeyboardAvoidingView style={{ flex: 1 }} behavior="height'">  
     <ScrollView>
       <View style={styles.form}>      
         <View style={styles.formControl}>
@@ -87,7 +85,7 @@ const EditDietScreen = (props) => {
         </View>
       </View>
     </ScrollView>
-    </KeyboardAvoidingView>
+  </KeyboardAvoidingView>
   );
 };
 
@@ -125,7 +123,7 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     borderBottomColor: '#ccc',
     borderBottomWidth: 1
-  }
+  },
 });
 
 export default EditDietScreen;

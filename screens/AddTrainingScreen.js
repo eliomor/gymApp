@@ -3,6 +3,7 @@ import { View, ScrollView, Text, TextInput, StyleSheet, Platform } from 'react-n
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import { useDispatch } from 'react-redux';
 import DatePicker from 'react-native-datepicker';
+import { LinearGradient } from 'expo-linear-gradient';
 
 import HeaderButton from '../components/UI/HeaderButton';
 import * as trainingsAction from '../store/action/trainings';
@@ -89,7 +90,7 @@ AddTrainingScreen.navigationOptions = navData => {
       paddingVertical: 5,
       borderBottomColor: '#ccc',
       borderBottomWidth: 1
-    }
+    },
   });
 
 export default AddTrainingScreen;

@@ -98,11 +98,7 @@ useEffect(() => {
 ])
 
 return (
-    <KeyboardAvoidingView 
-      behavior='padding'
-      keyboardVerticalOffset={50} 
-      style={styles.screen}
-    >
+    <KeyboardAvoidingView behavior='padding' keyboardVerticalOffset={50} style={styles.screen}>
      <LinearGradient colors={['#D03B29','#FEFEDF']} style={styles.gradient}>
       <Card style={styles.loginContainer}>
         <ScrollView>
@@ -137,6 +133,7 @@ return (
                      title={isSignup ? 'Sign Up' : 'Login'}
                      color={Colors.primary}
                      onPress={authHandler}
+                     style={styles.buttonStyle}
                  />
               )}
             </View>
@@ -144,9 +141,8 @@ return (
               <Button
                 title={`Switch to ${isSignup ? 'Login' : 'Sign Up'}`}
                 color={Colors.accent}
-                onPress={() => {
-                    setIsSignup(prevState => !prevState);
-                }}
+                onPress={() => {setIsSignup(prevState => !prevState);}}
+                style={styles.buttonStyle}
               />
             </View>
         </ScrollView>
@@ -179,8 +175,8 @@ LoginScreen.navigationOptions = {
     alignItems: 'center'
   },
   buttonContainer: {
-    marginTop: 10
-  }
+    marginTop: 15
+  },
  }
 );
 

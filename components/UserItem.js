@@ -10,33 +10,43 @@ const UserItem = props => {
     <Card style={styles.container}>
       <View style={styles.details}>
         <Text style={styles.title}>{props.name}</Text>
+        <View style={styles.buttonDetailsStyle}>
         <Button
           color={Colors.primary}
-          title="Schedule Workout"
+          title="Details"
+          onPress={props.onEdit}
+        />
+        </View>
+     </View>
+      <View style={styles.actions}>
+        <View style={styles.buttonStyle}>
+        <Button
+          color={Colors.primary}
+          title="Schedule"
           onPress={props.onSchedule}
         />
      </View>
-      <View style={styles.actions}>
+      <View style={styles.buttonStyle}>
         <Button
           color={Colors.primary}
-          title="Edit Details"
-          onPress={props.onEdit}
-        />
-        <Button
-          color={Colors.primary}
-          title="Edit Training"
+          title="Training"
           onPress={props.onEditTraining}
         />
+       </View>
+       <View style={styles.buttonStyle}>
         <Button
           color={Colors.primary}
-          title="Edit Diet"
+          title="Diet"
           onPress={props.onEditDiet}
         />
+       </View>
+       <View style={styles.buttonStyle}>
         <Button
           color={Colors.primary}
-          title="Delete User"
+          title="Delete"
           onPress={props.onDelete}
         />
+       </View>
        </View>
     </Card>
   );
@@ -44,25 +54,32 @@ const UserItem = props => {
 
 const styles = StyleSheet.create({
   container: {
-    height: 160,
-    margin: 20,
+    height: 180,
+    width: 330,
+    margin: 10,
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-evenly'
    },
-
+   buttonStyle: {
+    paddingVertical: 3,
+    paddingHorizontal: 5,
+   },
+   buttonDetailsStyle: {
+    alignSelf: 'baseline',
+  },
   details: {
-    alignItems: 'center',
+    alignItems: 'baseline',
     height: '15%',
-    padding: 10
+    padding: 10,
   },
   title: {
-    fontSize: 40,
-    marginVertical: 4
+    fontSize: 30,
+    marginVertical: 4,
+    fontFamily: 'open-sans-bold',
   },
   actions: {
     justifyContent: 'space-between',
     flexDirection: 'column',
-    padding: 10,
     paddingHorizontal: 10,
     padding: 10,
     marginHorizontal: 30,

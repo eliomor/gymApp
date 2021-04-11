@@ -1,7 +1,8 @@
 import  React,  { useEffect, useCallback } from 'react';
-import { View, Text, FlatList, Platform } from 'react-native';
+import { View, Text, FlatList, Platform, StyleSheet } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import { LinearGradient } from 'expo-linear-gradient';
 
 import HeaderButton from '../components/UI/HeaderButton';
 import TrainingItem from '../components/TrainingItem';
@@ -26,13 +27,17 @@ const TrainingScreen = (props) => {
 
 
    if (trainings.length === 0) {
-    return ( <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>No trainings found, maybe start creating some</Text>
-    </View>
+    return ( 
+    <LinearGradient colors={['#D03B29','#FEFEDF']} style={styles.gradient}> 
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>No trainings found, maybe start creating some</Text>
+      </View>
+    </LinearGradient>
     );
   }
 
    return (
+   <LinearGradient colors={['#D03B29','#FEFEDF']} style={styles.gradient}> 
     <FlatList
       data={trainings}
       keyExtractor={item => item.trainingId}
@@ -48,6 +53,7 @@ const TrainingScreen = (props) => {
         />       
       )}
     />
+  </LinearGradient>
   );
 };
 
@@ -69,6 +75,14 @@ TrainingScreen.navigationOptions = navData => {
  };  
 };
 
+const styles = StyleSheet.create({
+  gradient: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+});
 
 export default TrainingScreen;
 

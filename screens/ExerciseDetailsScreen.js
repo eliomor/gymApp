@@ -1,6 +1,7 @@
 import  React,  { useEffect } from 'react';
 import { View, Text, Platform, StyleSheet, ScrollView, Button} from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
+import { LinearGradient } from 'expo-linear-gradient';
 
 import * as exercisesAction from '../store/action/exercises';
 
@@ -16,12 +17,14 @@ const ExerciseDetailsScreen = (props) => {
   }, [dispatch]);
   
   return (
+  <LinearGradient colors={['#D03B29','#FEFEDF']} style={styles.gradient}> 
     <ScrollView>
         <Text style={styles.title}><Text>Name: </Text>{exercises ? exercises.exerciseName : ''}</Text>
         <Text style={styles.description}><Text>Sets Number: </Text>{exercises ? exercises.setsNumber : ''}</Text>
         <Text style={styles.description}><Text>Repetitions Number: </Text>{exercises ? exercises.repetitionsNumber : ''}</Text>
         <Text style={styles.description}><Text>Weight: </Text>{exercises ? exercises.weight : ''}</Text>
-  </ScrollView>
+    </ScrollView>
+  </LinearGradient>
   );
 };
 
@@ -56,8 +59,13 @@ const styles = StyleSheet.create({
    actions: {
      alignItems: 'center',    
      justifyContent: 'center'
- 
-   }
+   },
+   gradient: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
  });
  
 

@@ -2,6 +2,7 @@ import  React,  { useEffect, useState, useCallback } from 'react';
 import { View, Text, StyleSheet, Platform, TextInput, Button, ScrollView , FlatList } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import { useSelector, useDispatch } from 'react-redux';
+import { LinearGradient } from 'expo-linear-gradient';
 
 import Colors from '../constants/Colors';
 import HeaderButton from '../components/UI/HeaderButton';
@@ -29,7 +30,8 @@ const ChatScreen = (props) => {
 }, [dispatch,userId,name,date,message]);
 
 return (
-<View style={styles.screen}>
+<LinearGradient colors={['#D03B29','#FEFEDF']} style={styles.gradient}> 
+ <View style={styles.screen}>
   <ScrollView contentContainerStyle={styles.messages}>
    <FlatList
      data={messages}
@@ -63,7 +65,8 @@ return (
            </View> 
         </View>
       </View>  
-</View>
+    </View>
+  </LinearGradient>
  );
 };
 
@@ -116,6 +119,12 @@ ChatScreen.navigationOptions = navData => {
   button: {
     width: 70
   },
+  gradient: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
  }
 );
 
