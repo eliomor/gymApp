@@ -2,7 +2,6 @@ import Training from '../../models/training';
 
 import { DELETE_TRAINING, CREATE_TRAINING, SET_TRAINING, SET_MYTRAINING } from '../action/trainings';
 
-
 const initialState = {
     availableTrainings: [],
     userTrainings: []

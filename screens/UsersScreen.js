@@ -15,7 +15,6 @@ const UsersScreen = (props) => {
     dispatch(usersAction.fetchUsers());
   }, [dispatch]);
 
-
    const users = useSelector(state => state.users.availableUsers);
    return (
   <LinearGradient colors={['#D03B29','#FEFEDF']} style={styles.gradient}> 
@@ -46,7 +45,6 @@ const UsersScreen = (props) => {
   </LinearGradient>
   );
 };
-
 
 UsersScreen.navigationOptions = navData => {
   return {

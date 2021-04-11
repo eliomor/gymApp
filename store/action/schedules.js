@@ -4,8 +4,6 @@ export const CREATE_SCHEDULE = 'CREATE_SCHEDULE';
 export const SET_SCHEDULE = 'SET_SCHEDULE';
 export const SET_MYSCHEDULE = 'SET_MYSCHEDULE';
 
-
-
 export const fetchSchedules = (userId) => {
     return async (dispatch) => {
         const response = await fetch('https://gymapp-b60ab-default-rtdb.europe-west1.firebasedatabase.app/schedules.json');
@@ -45,11 +43,6 @@ export const fetchMySchedules = () => {
     };
 };
 
-
-
-
-
-
 export const deleteSchedule = (scheduleId) => {
     return async dispatch => {
          await fetch(`https://gymapp-b60ab-default-rtdb.europe-west1.firebasedatabase.app/schedules/${scheduleId}.json`, {
@@ -58,7 +51,6 @@ export const deleteSchedule = (scheduleId) => {
     dispatch ({type: DELETE_SCHEDULE, sid: scheduleId });    
   };
 };
-
 
 export const createSchedule= (userId, date, time, description) => {
     return async (dispatch) => {

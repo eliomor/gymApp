@@ -1,5 +1,5 @@
 import  React,  { useEffect } from 'react';
-import { View, Text, Platform, StyleSheet, ScrollView, Button} from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Image} from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { LinearGradient } from 'expo-linear-gradient';
 
@@ -10,7 +10,6 @@ const ExerciseDetailsScreen = (props) => {
   const exerciseId = props.navigation.getParam('exerciseId');
   const exercises = useSelector(state => state.exercises.availableExercises.find(exercise => exercise.exerciseId === exerciseId));
 
-  console.log(exercises)
 
   useEffect(() => {
     dispatch(exercisesAction.fetchExercises());
@@ -19,16 +18,26 @@ const ExerciseDetailsScreen = (props) => {
   return (
   <LinearGradient colors={['#D03B29','#FEFEDF']} style={styles.gradient}> 
     <ScrollView>
-        <Text style={styles.title}><Text>Name: </Text>{exercises ? exercises.exerciseName : ''}</Text>
-        <Text style={styles.description}><Text>Sets Number: </Text>{exercises ? exercises.setsNumber : ''}</Text>
-        <Text style={styles.description}><Text>Repetitions Number: </Text>{exercises ? exercises.repetitionsNumber : ''}</Text>
-        <Text style={styles.description}><Text>Weight: </Text>{exercises ? exercises.weight : ''}</Text>
+    <View style={styles.topContainer}>
+          <View style={styles.container}>
+        <Text style={styles.title}><Text>Exercise Name: </Text>{exercises ? exercises.exerciseName : ''}</Text>
+        <Text style={styles.description}><Text style={styles.title2}>Sets Number:  </Text>{exercises ? exercises.setsNumber : ''}</Text>
+        <Text style={styles.description}><Text style={styles.title2}>Repetitions Number: </Text>{exercises ? exercises.repetitionsNumber : ''}</Text>
+        <Text style={styles.description}><Text style={styles.title2}>Weight: </Text>{exercises ? exercises.weight : ''}</Text>
+      </View>
+    </View>
+    <View style={styles.imageContainer}>
+          <Image
+              style={styles.image}
+              source={{
+                uri: 'https://cdn.iconscout.com/icon/premium/png-256-thumb/gym-2279454-1900759.png',
+          }}
+        />
+          </View>
     </ScrollView>
   </LinearGradient>
   );
 };
-
-
 
 ExerciseDetailsScreen.navigationOptions = navData => {
   return {
@@ -37,37 +46,66 @@ ExerciseDetailsScreen.navigationOptions = navData => {
 };
 
 const styles = StyleSheet.create({
-  actions: {
-     flexDirection: 'row',
-     justifyContent: 'space-between',
-     alignItems: 'center',
-     paddingHorizontal: 20
-   },
-  title: {
-     fontFamily: 'open-sans-bold',
-     fontSize: 30,
-     color: '#888',
-     textAlign: 'center',
-     marginVertical: 20
-   },
-   description: {
-     fontFamily: 'open-sans',
-     fontSize: 20,
-     textAlign: 'center',
-     marginHorizontal: 20
-   },
-   actions: {
-     alignItems: 'center',    
-     justifyContent: 'center'
-   },
-   gradient: {
+  topContainer: {
+    alignItems: 'center',    
+    justifyContent: 'center'
+  },
+  imageContainer: {
+    justifyContent:'center',
+    alignItems: 'center',
+  },
+  image: {
+    justifyContent:'center',
+    width: 180,
+    height: 180,
+    resizeMode: 'stretch',
+    marginTop: 30
+  },
+ actions: {
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 10
+  },
+ title: {
+    fontFamily: 'open-sans-bold',
+    fontSize: 30,
+    color: 'black',
+    textAlign: 'center',
+    marginVertical: 20,
+    marginTop: 40
+  },
+  title2: {
+    fontFamily: 'open-sans-bold',
+    fontSize: 25,
+    color: 'black',
+    textAlign: 'center',
+    marginVertical: 20,
+  },
+  container: {
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    padding: 1,
+    marginBottom: 20,
+    marginLeft: 40,
+    marginLeft: 0
+  },
+  description: {
+    fontFamily: 'open-sans',
+    fontSize: 23,
+    padding: 2,
+    justifyContent: 'center',
+    textAlign: 'center',
+    alignItems: 'center',
+    marginHorizontal: 20
+  },
+  gradient: {
     width: '100%',
     height: '100%',
     justifyContent: 'center',
     alignItems: 'center'
   },
- });
- 
+});
 
 export default ExerciseDetailsScreen;
 

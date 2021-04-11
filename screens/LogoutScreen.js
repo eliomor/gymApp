@@ -1,5 +1,5 @@
 import  React , { useEffect} from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View} from 'react-native';
  
 const LogoutScreen = (props) => {
 
@@ -8,18 +8,8 @@ useEffect(() => {
     },);
 
 return (
-      <View style={styles.container}/>     
+      <View/>     
     );
 }
-
- const styles = StyleSheet.create({
-    container: {
-     flex: 1,
-     alignItems: 'center',    
-     justifyContent: 'center'
-    }
-  }
-);
-
 export default LogoutScreen;
 

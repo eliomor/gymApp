@@ -38,7 +38,6 @@ export const updateDiet = (dietId, userId, breakfast, lunch, dinner, snacks) => 
     };
 };
 
-
 export const createDiet = (userId, breakfast, lunch, dinner, snacks) => {
     return async (dispatch) => {
         const response = await fetch('https://gymapp-b60ab-default-rtdb.europe-west1.firebasedatabase.app/diets.json', {

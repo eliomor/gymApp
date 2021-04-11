@@ -5,7 +5,6 @@ export const DELETE_EXERCISE = 'DELETE_EXERCISE';
 export const CREATE_EXERCISE = 'CREATE_EXERCISE';
 export const SET_EXERCISES = 'SET_EXERCISES';
 
-
 export const fetchExercises = () => {
     return async dispatch => {
         const response = await fetch('https://gymapp-b60ab-default-rtdb.europe-west1.firebasedatabase.app/exercises.json');
@@ -37,8 +36,6 @@ export const deleteExercise= exerciseId => {
   };
  };
     
-
-
 export const createExercise = (trainingId, userId, exerciseName, setsNumber, repetitionsNumber, weight) => {
     return async dispatch => {
         const response = await fetch('https://gymapp-b60ab-default-rtdb.europe-west1.firebasedatabase.app/exercises.json', {

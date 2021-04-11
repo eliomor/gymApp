@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { View, ScrollView, Text, TextInput, StyleSheet, Platform,KeyboardAvoidingView } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import { useSelector, useDispatch } from 'react-redux';
-import { LinearGradient } from 'expo-linear-gradient';
 
 import * as usersAction from '../store/action/users';
 import HeaderButton from '../components/UI/HeaderButton';
@@ -18,7 +17,6 @@ const EditUsersScreen = (props) => {
    dispatch(usersAction.fetchUsers());
  }, [dispatch]);
  
-
   const [name,setName] = useState(userExists ? userExists.name : '');
   const [phone,setPhone] = useState(userExists ? userExists.phone : '');
   const [age,setAge] = useState(userExists ? userExists.age : '');
@@ -27,7 +25,6 @@ const EditUsersScreen = (props) => {
   const [BMI,setBMI] = useState(userExists ? userExists.BMI : '');
   const [scope,setScope] = useState(userExists ? userExists.scope : '');
   const [fat,setFat] = useState(userExists ? userExists.fat : '');
-
 
   const submitHandler = useCallback(() => {
     dispatch(usersAction.updateUser(userId ,name, phone, age, weight, height, BMI, scope, fat));
@@ -38,7 +35,6 @@ const EditUsersScreen = (props) => {
   useEffect(() => {
     props.navigation.setParams({ submit: submitHandler });
   }, [submitHandler]);
-
 
   return (
   <KeyboardAvoidingView style={{ flex: 1 }} behavior="height'">  
@@ -122,8 +118,6 @@ const EditUsersScreen = (props) => {
   );
 };
 
-    
-
 EditUsersScreen.navigationOptions = navData => {
   const submitFn = navData.navigation.getParam('submit');
   return {
@@ -141,9 +135,6 @@ EditUsersScreen.navigationOptions = navData => {
     )
   };
 };
-
-
-
 
 const styles = StyleSheet.create({
   form: {

@@ -27,9 +27,13 @@ const ExerciseScreen = (props) => {
   }, [addHandler]);
 
   if (exercises.length === 0) {
-    return ( <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>No exercises found, maybe start creating some</Text>
-    </View>
+    return ( 
+      <LinearGradient colors={['#D03B29','#FEFEDF']} style={styles.gradient}> 
+          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <Text>No exercises found, maybe start creating some</Text>
+          </View>
+       </LinearGradient>
+
     );
   }
    return (

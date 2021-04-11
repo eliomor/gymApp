@@ -15,7 +15,6 @@ const HomeScreen = (props) => {
 
   LogBox.ignoreAllLogs();
 
-  
 return (
         <View style={styles.container}>
           <ImageBackground source={{
@@ -27,7 +26,6 @@ return (
       </View>
     );
 }
-
 
 HomeScreen.navigationOptions = navData => {
   return {

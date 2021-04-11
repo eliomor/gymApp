@@ -1,4 +1,4 @@
-import  React,  { useEffect, useCallback } from 'react';
+import  React,  { useEffect } from 'react';
 import { View, Text, FlatList, Platform, StyleSheet } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
@@ -8,7 +8,7 @@ import HeaderButton from '../components/UI/HeaderButton';
 import MyTrainingItem from '../components/MyTrainingItem';
 import * as trainingsAction from '../store/action/trainings';
 
-const MyScheduleScreen = (props) => {
+const MyTrainingScreen = (props) => {
    const dispatch = useDispatch()
    const trainings = useSelector(state => state.trainings.userTrainings);
 
@@ -16,12 +16,11 @@ const MyScheduleScreen = (props) => {
      dispatch(trainingsAction.fetchMyTrainings());
    }, [dispatch]);
 
-
    if (trainings.length === 0) {
     return ( 
       <LinearGradient colors={['#D03B29','#FEFEDF']} style={styles.gradient}> 
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <Text>No schedule found</Text>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', fontFamily: 'open-sans-bold', fontSize: 20}}>
+          <Text>No Training Found</Text>
         </View>
       </LinearGradient>
     );
@@ -45,7 +44,7 @@ const MyScheduleScreen = (props) => {
   );
 };
 
-MyScheduleScreen.navigationOptions = navData => {
+MyTrainingScreen.navigationOptions = navData => {
   return {
   headerTitle: 'My Training',
   headerLeft: (
@@ -71,5 +70,5 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MyScheduleScreen;
+export default MyTrainingScreen;
 

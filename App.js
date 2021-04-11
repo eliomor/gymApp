@@ -16,7 +16,6 @@ import exercisesReducer from './store/reducer/exercises';
 import trainingsReducer from './store/reducer/trainings';
 import scheduleReducer from './store/reducer/schedules';
 
-
 const rootReducer = combineReducers({
   users: usersReducer,
   auth: authReducer,
@@ -27,7 +26,6 @@ const rootReducer = combineReducers({
   schedules: scheduleReducer
 });
 
-
 const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
 
 const fetchFonts = () => {
@@ -37,7 +35,6 @@ const fetchFonts = () => {
     'open-sans-bold': require('./assets/fonts/OpenSans-Bold.ttf')
   });
 };
-
 
 export default function App() {
  const [fontLoaded, setFontLoaded] = useState(false);

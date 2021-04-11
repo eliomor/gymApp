@@ -1,10 +1,8 @@
-import  React , { useEffect, useCallback } from 'react';
+import  React , { useEffect } from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
-import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import { LinearGradient } from 'expo-linear-gradient';
 
-import HeaderButton from '../components/UI/HeaderButton';
 import MyExerciseItem from '../components/MyExerciseItem';
 import * as exercisesAction from '../store/action/exercises';
 
@@ -22,8 +20,8 @@ const MyExerciseScreen = (props) => {
   if (exercises.length === 0) {
     return ( 
       <LinearGradient colors={['#D03B29','#FEFEDF']} style={styles.gradient}> 
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <Text>No exercises found</Text>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', fontFamily: 'open-sans-bold', fontSize: 20}}>
+          <Text>No Exercises Found</Text>
         </View>
       </LinearGradient>
 

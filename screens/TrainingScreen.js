@@ -29,7 +29,7 @@ const TrainingScreen = (props) => {
    if (trainings.length === 0) {
     return ( 
     <LinearGradient colors={['#D03B29','#FEFEDF']} style={styles.gradient}> 
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', fontFamily: 'open-sans-bold', fontSize: 20}}>
         <Text>No trainings found, maybe start creating some</Text>
       </View>
     </LinearGradient>

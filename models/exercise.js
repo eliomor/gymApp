@@ -11,4 +11,3 @@ class Exercise {
 }
 export default Exercise;
 
-        //תוכנית אימונים - תרגיל, מספר סטים, מספר חזרות, משקל

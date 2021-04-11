@@ -1,4 +1,4 @@
-import  React,  { useEffect, useCallback } from 'react';
+import  React,  { useEffect } from 'react';
 import { View, Text, FlatList, Platform, StyleSheet } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
@@ -20,8 +20,8 @@ const MyScheduleScreen = (props) => {
    if (schedules.length === 0) {
     return ( 
       <LinearGradient colors={['#D03B29','#FEFEDF']} style={styles.gradient}> 
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <Text>No schedules found</Text>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', fontFamily: 'open-sans-bold', fontSize: 40}}>
+          <Text>No Schedules Found</Text>
         </View>
       </LinearGradient>
      ); 
@@ -69,7 +69,6 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
 });
-
 
 export default MyScheduleScreen;
 

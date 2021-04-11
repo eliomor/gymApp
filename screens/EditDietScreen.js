@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { View, ScrollView, Text, TextInput, StyleSheet, Platform, KeyboardAvoidingView } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import { useSelector, useDispatch } from 'react-redux';
-import { LinearGradient } from 'expo-linear-gradient';
 
 import * as dietsAction from '../store/action/diets';
 import HeaderButton from '../components/UI/HeaderButton';
@@ -10,7 +9,6 @@ import HeaderButton from '../components/UI/HeaderButton';
 const EditDietScreen = (props) => {
   const dispatch = useDispatch()
   const userId = props.navigation.getParam('userId');
-  console.log(userId);
   const dietExists = useSelector(state => state.diets.allDiets.find(diet => diet.userId === userId));
   const currentUser = useSelector(state => state.users.availableUsers.find(user => user.userId === userId));
 

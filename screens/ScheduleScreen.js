@@ -25,12 +25,11 @@ const ScheduleScreen = (props) => {
     props.navigation.setParams({ submit: submitHandler });
   }, [submitHandler]);
 
-
    if (schedules.length === 0) {
     return ( 
       <LinearGradient colors={['#D03B29','#FEFEDF']} style={styles.gradient}> 
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <Text>No schedules found, maybe start creating some</Text>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', fontFamily: 'open-sans-bold', fontSize: 30}}>
+          <Text>No Schedules Found, Maybe Start Creating Some</Text>
         </View>
       </LinearGradient>
     );

@@ -4,8 +4,6 @@ export const CREATE_TRAINING = 'CREATE_TRAINING';
 export const SET_TRAINING = 'SET_TRAINING';
 export const SET_MYTRAINING = 'SET_MYTRAINING';
 
-
-
 export const fetchTrainings = (userId) => {
     return async (dispatch) => {
         const response = await fetch('https://gymapp-b60ab-default-rtdb.europe-west1.firebasedatabase.app/trainings.json');
@@ -41,11 +39,6 @@ export const fetchMyTrainings = () => {
     };
 };
 
-
-
-
-
-
 export const deleteTraining = trainingId => {
     return async dispatch => {
          await fetch(`https://gymapp-b60ab-default-rtdb.europe-west1.firebasedatabase.app/trainings/${trainingId}.json`, {
@@ -54,7 +47,6 @@ export const deleteTraining = trainingId => {
     dispatch ({type: DELETE_TRAINING, tid: trainingId });    
   };
 };
-
 
 export const createTraining = (date,userId) => {
     return async (dispatch) => {

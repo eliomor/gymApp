@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text, StyleSheet, Platform } from 'react-native';
+import { View, Platform } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import { LinearGradient } from 'expo-linear-gradient';
 
@@ -9,12 +9,11 @@ const VideoScreen = (props) => {
 
 return (
     <LinearGradient colors={['#D03B29','#FEFEDF']} style={styles.gradient}> 
-      <View style={styles.container}>
+      <View >
       </View>
     </LinearGradient>
     );
 }
-
 
 VideoScreen.navigationOptions = navData => {
   return {
@@ -33,21 +32,14 @@ VideoScreen.navigationOptions = navData => {
  };  
 };
 
-
- const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',    
-    justifyContent: 'center'
-   },
-    gradient: {
+const styles = StyleSheet.create({
+  gradient: {
     width: '100%',
     height: '100%',
     justifyContent: 'center',
     alignItems: 'center'
   },
-  }
-);
+});
 
 export default VideoScreen;
 

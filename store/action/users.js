@@ -38,7 +38,6 @@ export const deleteUser = userId => {
   };
 };
 
-
 export const updateUser = (userId, name, phone, age, weight, height, BMI, scope, fat) => {
     return async (dispatch) => {
         const response = await fetch(`https://gymapp-b60ab-default-rtdb.europe-west1.firebasedatabase.app/users/${userId}.json`, {

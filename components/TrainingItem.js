@@ -11,17 +11,21 @@ const TrainingItem = props => {
       <View style={styles.details}>
         <Text style={styles.title}>{props.date}</Text>
       </View>
-      <View style={styles.actions}>
+      <View style={styles.topActions}>
+       <View style={styles.actions}>
         <Button
           color={Colors.primary}
           title="View Details"
           onPress={props.onViewDetail}
         />
+        <View style={styles.actions}>
         <Button
           color={Colors.primary}
           title="Delete"
           onPress={props.onDelete}
         />
+        </View>
+       </View>
       </View>
     </Card>
   );
@@ -30,25 +34,28 @@ const TrainingItem = props => {
 const styles = StyleSheet.create({
   container: {
     height: 140,
+    width: 300,
     margin: 20
    },
-
   details: {
     alignItems: 'center',
-    height: '15%',
+    height: '25%',
     padding: 10
   },
   title: {
     fontSize: 30,
     marginVertical: 4
   },
+  topActions: {
+    marginTop: 30,
+    justifyContent: 'center',
+  },
   actions: {
+    justifyContent: 'center',
+    paddingHorizontal: 20,
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    height: '75%',
-    paddingHorizontal: 20
-  }
+
+  },
 });
 
 export default TrainingItem;

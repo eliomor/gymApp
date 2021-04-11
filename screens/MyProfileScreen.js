@@ -23,25 +23,23 @@ return (
           <Text style={styles.title}>{loginUser.name}</Text>
           <View style={styles.topContainer}>
           <View style={styles.container}>
-          <Text style={styles.description}><Text>Phone:  </Text>{loginUser.phone}</Text>
-          <Text style={styles.description}><Text>Age:  </Text>{loginUser.age}</Text>
-          <Text style={styles.description}><Text>Weight:  </Text>{loginUser.weight}</Text>
-          <Text style={styles.description}><Text>Height:  </Text>{loginUser.height}</Text>
-          <Text style={styles.description}><Text>BMI:  </Text>{loginUser.BMI}</Text>
-          <Text style={styles.description}><Text>Scope:  </Text>{loginUser.scope}</Text>
-          <Text style={styles.description}><Text>Fat:  </Text>{loginUser.fat}</Text>
+          <Text style={styles.description}><Text style={styles.title2}>Phone:  </Text>{loginUser.phone}</Text>
+          <Text style={styles.description}><Text style={styles.title2}>Age:  </Text>{loginUser.age}</Text>
+          <Text style={styles.description}><Text style={styles.title2}>Weight:  </Text>{loginUser.weight}</Text>
+          <Text style={styles.description}><Text style={styles.title2}>Height:  </Text>{loginUser.height}</Text>
+          <Text style={styles.description}><Text style={styles.title2}>BMI:  </Text>{loginUser.BMI}</Text>
+          <Text style={styles.description}><Text style={styles.title2}>Scope:  </Text>{loginUser.scope}</Text>
+          <Text style={styles.description}><Text style={styles.title2}>Fat:  </Text>{loginUser.fat}</Text>
           </View>
           <View style={styles.actions}>
             <Button color={Colors.primary} title="Edit Details" onPress={() => { props.navigation.navigate('EditUser', {userId: userId})} } />
           </View>
         </View>
-
     </ScrollView>
   </LinearGradient>
 
     );
 };
-
 
 MyProfileScreen.navigationOptions = navData => {
   return {
@@ -59,7 +57,6 @@ MyProfileScreen.navigationOptions = navData => {
   )
  };  
 };
-
 
 const styles = StyleSheet.create({
   topContainer: {
@@ -79,15 +76,22 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginVertical: 20
   },
+  title2: {
+    fontFamily: 'open-sans-bold',
+    fontSize: 25,
+    color: 'black',
+    textAlign: 'center',
+    marginVertical: 20,
+  },
   container: {
     flexDirection: 'column',
     alignItems: 'flex-start',
     padding: 1,
     marginBottom: 20,
-    marginLeft: 95
+    marginLeft: 20
   },
   description: {
-    fontFamily: 'open-sans-bold',
+    fontFamily: 'open-sans',
     fontSize: 20,
     padding: 2,
     justifyContent: 'center',

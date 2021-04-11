@@ -6,7 +6,6 @@ import Diet from '../../models/diet';
     loginUserDiet: []
 };
 
-
 export default (state = initialState, action) => {
     switch (action.type) {
         case SET_DIET:

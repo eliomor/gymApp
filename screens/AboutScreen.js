@@ -7,14 +7,14 @@ import HeaderButton from '../components/UI/HeaderButton';
 
 const AboutScreen = (props) => {
 
-return (
-  <LinearGradient colors={['#D03B29','#FEFEDF']} style={styles.gradient}> 
-      <View style={styles.container}>
-           <Text>About Screen</Text>
-      </View>
-  </LinearGradient>
-  );
-}
+  return (
+    <LinearGradient colors={['#D03B29','#FEFEDF']} style={styles.gradient}> 
+        <View style={styles.container}>
+            <Text>About Screen</Text>
+        </View>
+    </LinearGradient>
+    );
+  }
 
 
 AboutScreen.navigationOptions = navData => {

@@ -44,7 +44,6 @@ export const signup = (email, password) => {
        };
     };
 
-
 export const login = (email, password) => {
     return async dispatch => {
         const response = await fetch(

@@ -2,8 +2,6 @@ export const LOAD_MESSAGES = 'LOAD_MESSAGES';
 export const SEND_MESSAGE ='LOAD_MESSAGES';
 import Message from '../../models/message';
 
-//(messageId, userId, name, date, description)
-
 export const fetchMessages = () => {
     return async (dispatch, getState)  => {
         const userId = getState().auth.userId;

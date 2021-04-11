@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
 
-import Colors from '../constants/Colors';
 import Card from './UI/Card';
 
 const MessageItem = props => {

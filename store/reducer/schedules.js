@@ -2,7 +2,6 @@ import Schedule from '../../models//schedule';
 
 import { DELETE_SCHEDULE, CREATE_SCHEDULE, SET_SCHEDULE, SET_MYSCHEDULE } from '../action/schedules';
 
-
 const initialState = {
     availableSchedules: [],
     userSchedules: []
