@@ -22,7 +22,7 @@ export default (state = initialState, action) => {
         };
         case CREATE_TRAINING:
              const newTraining = new Training(
-                 action.trainingData.trainingtId,
+                 action.trainingData.trainingId,
                  action.trainingData.userId,
                  action.trainingData.date
                  );

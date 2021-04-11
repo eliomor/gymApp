@@ -72,7 +72,7 @@ export const createTraining = (date,userId) => {
         const resData = await response.json();
 
         dispatch({
-            type: CREATE_TRAINING, trainingData: { trainingtId: resData.name, userId: userId, date } 
+            type: CREATE_TRAINING, trainingData: { trainingId: resData.name, userId: userId, date } 
         });
     };
 };

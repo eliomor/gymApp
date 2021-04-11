@@ -23,6 +23,9 @@ const UsersScreen = (props) => {
       renderItem={itemData => (
         <UserItem
           name={itemData.item.name}
+          onSchedule={() => {
+            props.navigation.navigate('Schedule', {userId: itemData.item.userId});
+          }}
           onEdit={() => {
             props.navigation.navigate('EditUser', {userId: itemData.item.userId});
           }}

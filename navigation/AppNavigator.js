@@ -6,9 +6,10 @@ import Colors from '../constants/Colors';
 
 
 import AboutScreen from '../screens/AboutScreen';
-import ChatScreen from '../screens/ChatScreen';
 import AddExerciseScreen from '../screens/AddExerciseScreen';
+import AddScheduleScreen from '../screens/AddScheduleScreen';
 import AddTrainingScreen from '../screens/AddTrainingScreen';
+import ChatScreen from '../screens/ChatScreen';
 import EditDietScreen from '../screens/EditDietScreen';
 import EditUserScreen from '../screens/EditUserScreen';
 import ExerciseDetailsScreen from '../screens/ExerciseDetailsScreen';
@@ -19,6 +20,7 @@ import MyDietScreen from '../screens/MyDietScreen';
 import LogoutScreen from '../screens/LogoutScreen';
 import MyExerciseScreen from '../screens/MyExerciseScreen';
 import MyProfileScreen from '../screens/MyProfileScreen';
+import MyScheduleScreen from '../screens/MyScheduleScreen';
 import MyTrainingScreen from '../screens/MyTrainingScreen';
 import ScheduleScreen from '../screens/ScheduleScreen';
 import TrainingScreen from '../screens/TrainingScreen';
@@ -32,14 +34,36 @@ const defaultNavOptions = {
         headerTintColor: Platform.OS === 'android' ? Colors.primary : Colors.primary
 }
 
+const LoginNavigator = createStackNavigator({
+    Login: LoginScreen,
+}, {
+    defaultNavigationOptions: defaultNavOptions
+});
+
 const HomeNavigator = createStackNavigator({
     Home: HomeScreen
 }, {
     defaultNavigationOptions: defaultNavOptions
 });
 
-const ChatNavigator = createStackNavigator({
-    Chat: ChatScreen
+const UsersNavigator = createStackNavigator({
+    Users: UsersScreen,
+    EditUser: EditUserScreen,
+    EditDiet: EditDietScreen,
+    Training: TrainingScreen,
+    AddTraining: AddTrainingScreen,
+    Exercise: ExerciseScreen,
+    AddExercise: AddExerciseScreen,
+    ExerciseDetails: ExerciseDetailsScreen,
+    Schedule: ScheduleScreen,
+    AddSchedule: AddScheduleScreen 
+}, {
+    defaultNavigationOptions: defaultNavOptions
+});
+
+const ProfileNavigator = createStackNavigator({
+    Profile: MyProfileScreen,
+    EditUser: EditUserScreen
 }, {
     defaultNavigationOptions: defaultNavOptions
 });
@@ -65,8 +89,14 @@ const MyTrainingNavigator = createStackNavigator({
     defaultNavigationOptions: defaultNavOptions
 });
 
-const ScheduleNavigator = createStackNavigator({
-    Schedule: ScheduleScreen
+const MyScheduleNavigator = createStackNavigator({
+    MySchedule: MyScheduleScreen
+}, {
+    defaultNavigationOptions: defaultNavOptions
+});
+
+const ChatNavigator = createStackNavigator({
+    Chat: ChatScreen
 }, {
     defaultNavigationOptions: defaultNavOptions
 });
@@ -77,34 +107,8 @@ const AboutNavigator = createStackNavigator({
     defaultNavigationOptions: defaultNavOptions
 });
 
-const UsersNavigator = createStackNavigator({
-    Users: UsersScreen,
-    EditUser: EditUserScreen,
-    EditDiet: EditDietScreen,
-    Training: TrainingScreen,
-    AddTraining: AddTrainingScreen,
-    Exercise: ExerciseScreen,
-    AddExercise: AddExerciseScreen,
-    ExerciseDetails: ExerciseDetailsScreen
-}, {
-    defaultNavigationOptions: defaultNavOptions
-});
-
-const ProfileNavigator = createStackNavigator({
-    Profile: MyProfileScreen,
-    EditUser: EditUserScreen
-}, {
-    defaultNavigationOptions: defaultNavOptions
-});
-
 const LogoutNavigator = createStackNavigator({
     Logout: LogoutScreen
-}, {
-    defaultNavigationOptions: defaultNavOptions
-});
-
-const LoginNavigator = createStackNavigator({
-    Login: LoginScreen,
 }, {
     defaultNavigationOptions: defaultNavOptions
 });
@@ -112,16 +116,14 @@ const LoginNavigator = createStackNavigator({
 
 const AppNavigator = createDrawerNavigator({
     Home: HomeNavigator,
+    Users:  UsersNavigator,
     My_Profile: ProfileNavigator,
+    My_Schedule: MyScheduleNavigator,
     My_Training: MyTrainingNavigator,
     My_Diet: DietNavigator,
-
-    Users:  UsersNavigator,
-
-    About: AboutNavigator,
-    Schedule: ScheduleNavigator,
     Video: VideoNavigator,
     Chat: ChatNavigator,
+    About: AboutNavigator,
     Logout: LogoutNavigator
 },{
     contentOptions: {

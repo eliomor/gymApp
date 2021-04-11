@@ -10,6 +10,11 @@ const UserItem = props => {
     <Card style={styles.container}>
       <View style={styles.details}>
         <Text style={styles.title}>{props.name}</Text>
+        <Button
+          color={Colors.primary}
+          title="Schedule Workout"
+          onPress={props.onSchedule}
+        />
      </View>
       <View style={styles.actions}>
         <Button

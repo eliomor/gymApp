@@ -4,35 +4,34 @@ import { useSelector, useDispatch } from 'react-redux';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
 import HeaderButton from '../components/UI/HeaderButton';
-import MyTrainingItem from '../components/MyTrainingItem';
-import * as trainingsAction from '../store/action/trainings';
+import MyScheduleItem from '../components/MyScheduleItem';
+import * as schedulesAction from '../store/action/schedules';
 
 const MyScheduleScreen = (props) => {
    const dispatch = useDispatch()
-   const trainings = useSelector(state => state.trainings.userTrainings);
+   const schedules = useSelector(state => state.schedules.userSchedules);
 
    useEffect(() => {
-     dispatch(trainingsAction.fetchMyTrainings());
+     dispatch(schedulesAction.fetchMySchedules());
    }, [dispatch]);
 
 
-   if (trainings.length === 0) {
+   if (schedules.length === 0) {
     return ( <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>No schedule found</Text>
+      <Text>No schedules found</Text>
     </View>
     );
   }
 
    return (
     <FlatList
-      data={trainings}
-      keyExtractor={item => item.trainingId}
+      data={schedules}
+      keyExtractor={item => item.schedulesId}
       renderItem={itemData => (
-        <MyTrainingItem
+        <MyScheduleItem
           date={itemData.item.date}
-          onViewDetail={() => {
-            props.navigation.navigate('MyExercise', {trainingId: itemData.item.trainingId, userId: itemData.item.userId });
-          }}
+          time={itemData.item.time}
+          description={itemData.item.description}
         />       
       )}
     />
@@ -41,7 +40,7 @@ const MyScheduleScreen = (props) => {
 
 MyScheduleScreen.navigationOptions = navData => {
   return {
-  headerTitle: 'My Training',
+  headerTitle: 'My Schedules',
   headerLeft: (
     <HeaderButtons HeaderButtonComponent={HeaderButton}>
     <Item
