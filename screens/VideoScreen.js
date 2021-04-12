@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Platform } from 'react-native';
+import { View, Platform, StyleSheet} from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import { LinearGradient } from 'expo-linear-gradient';
 
