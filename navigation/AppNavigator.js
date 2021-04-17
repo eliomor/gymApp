@@ -26,6 +26,10 @@ import ScheduleScreen from '../screens/ScheduleScreen';
 import TrainingScreen from '../screens/TrainingScreen';
 import UsersScreen from '../screens/UsersScreen';
 import VideoScreen from '../screens/VideoScreen';
+import TipsScreen from '../screens/TipsScreen';
+import TipUserScreen from '../screens/TipUserScreen';
+import AddTipScreen from '../screens/AddTipScreen';
+
 
 const defaultNavOptions = {
     headerStyle: {
@@ -48,6 +52,8 @@ const HomeNavigator = createStackNavigator({
 
 const UsersNavigator = createStackNavigator({
     Users: UsersScreen,
+    Tips : TipsScreen ,
+    AddTip: AddTipScreen,
     EditUser: EditUserScreen,
     EditDiet: EditDietScreen,
     Training: TrainingScreen,
@@ -101,6 +107,12 @@ const ChatNavigator = createStackNavigator({
     defaultNavigationOptions: defaultNavOptions
 });
 
+const TipsNavigator = createStackNavigator({
+    Tip: TipUserScreen
+}, {
+    defaultNavigationOptions: defaultNavOptions
+});
+
 const AboutNavigator = createStackNavigator({
     About: AboutScreen
 }, {
@@ -116,13 +128,14 @@ const LogoutNavigator = createStackNavigator({
 
 const AppNavigator = createDrawerNavigator({
     Home: HomeNavigator,
-    Users:  UsersNavigator,
+    Manager:  UsersNavigator,
     Profile: ProfileNavigator,
     Schedule: MyScheduleNavigator,
     Training: MyTrainingNavigator,
     Diet: DietNavigator,
     Video: VideoNavigator,
     Chat: ChatNavigator,
+    Tips : TipsNavigator,
     About: AboutNavigator,
     Logout: LogoutNavigator
 },{

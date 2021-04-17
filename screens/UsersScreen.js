@@ -1,5 +1,5 @@
 import  React,  { useEffect } from 'react';
-import { FlatList, StyleSheet } from 'react-native';
+import { FlatList, StyleSheet, Button } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -7,6 +7,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import UserItem from '../components/UserItem';
 import HeaderButton from '../components/UI/HeaderButton';
 import * as usersAction from '../store/action/users';
+import Colors from '../constants/Colors';
 
 const UsersScreen = (props) => {
    const dispatch = useDispatch()
@@ -18,6 +19,11 @@ const UsersScreen = (props) => {
    const users = useSelector(state => state.users.availableUsers);
    return (
   <LinearGradient colors={['#D03B29','#FEFEDF']} style={styles.gradient}> 
+      <Button
+          color={Colors.primary}
+          title="Tips Screen"
+          onPress={()=>{props.navigation.navigate('Tips')}}
+        />
     <FlatList
       data={users}
       keyExtractor={item => item.userId}
