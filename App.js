@@ -16,6 +16,7 @@ import exercisesReducer from './store/reducer/exercises';
 import trainingsReducer from './store/reducer/trainings';
 import scheduleReducer from './store/reducer/schedules';
 import tipsReducer from './store/reducer/tips';
+import videosReducer from './store/reducer/videos';
 
 const rootReducer = combineReducers({
   users: usersReducer,
@@ -25,7 +26,8 @@ const rootReducer = combineReducers({
   exercises: exercisesReducer,
   trainings: trainingsReducer,
   schedules: scheduleReducer,
-  tips: tipsReducer
+  tips: tipsReducer,
+  videos: videosReducer
 });
 
 const store = createStore(rootReducer, applyMiddleware(ReduxThunk));

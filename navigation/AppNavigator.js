@@ -9,6 +9,7 @@ import AboutScreen from '../screens/AboutScreen';
 import AddExerciseScreen from '../screens/AddExerciseScreen';
 import AddScheduleScreen from '../screens/AddScheduleScreen';
 import AddTrainingScreen from '../screens/AddTrainingScreen';
+import AddVideoScreen from '../screens/AddVideoScreen';
 import ChatScreen from '../screens/ChatScreen';
 import EditDietScreen from '../screens/EditDietScreen';
 import EditUserScreen from '../screens/EditUserScreen';
@@ -26,6 +27,7 @@ import ScheduleScreen from '../screens/ScheduleScreen';
 import TrainingScreen from '../screens/TrainingScreen';
 import UsersScreen from '../screens/UsersScreen';
 import VideoScreen from '../screens/VideoScreen';
+import VideoDetailScreen from '../screens/VideoDetailScreen';
 import TipsScreen from '../screens/TipsScreen';
 import TipUserScreen from '../screens/TipUserScreen';
 import AddTipScreen from '../screens/AddTipScreen';
@@ -82,7 +84,9 @@ const DietNavigator = createStackNavigator({
 });
 
 const VideoNavigator = createStackNavigator({
-    Video: VideoScreen
+    Video: VideoScreen,
+    AddVideo: AddVideoScreen,
+    VideoDetail:VideoDetailScreen
 }, {
     defaultNavigationOptions: defaultNavOptions
 });
